@@ -1,4 +1,5 @@
 package org.example;
+import java.util.Objects;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -12,20 +13,55 @@ public class Main {
 
     public static void main(String[] args) {
 
+        obtenerOpcion();
+        agregarPistola();
+        listarPistolas();
+        eliminarPistola();
+        listarPistolas();
+
     }
 
     public static void menu() {
 
     }
 
+    private static void mostrarOpciones(){
+        return;
+    }
 
+
+
+
+
+
+    private static int obtenerOpcion() {
+        Scanner sc = new Scanner(System.in);
+        while(!sc.hasNextInt()){
+            System.out.println("Por favor ingresa un numero valido");
+            sc.next();
+        }
+        int opcionfinal = sc.nextInt();
+        return opcionfinal;
+
+
+    }
 
 
 
     private static void eliminarPistola(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Porfavor,ingrese la ID del arma que desea borrar: ");
+        String id = sc.nextLine();
+
+        for (int i=0; i<pistolas.length; i++){
+            if (Objects.equals(pistolas[i][0], id)){
+                pistolas[i][0] = null;
+                pistolas[i][1] = null;
+            }
+        }
 
     }
-
 
 
     public static void agregarPistola(){
