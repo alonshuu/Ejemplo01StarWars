@@ -24,7 +24,7 @@ public class Main {
 
     }
 
-    private static void mostrarOpciones(){
+    private static void mostrarOpciones(){ // menu de mostrar opciones, solo prints
         System.out.println("--BIENVENIDO AL SISTEMA DEL IMPERIO--");
         System.out.println("[1] AGREGAR PISTOLA");
         System.out.println("[2] ELIMINAR PISTOLA");
@@ -68,7 +68,7 @@ public class Main {
 
 
 
-    private static int obtenerOpcion() {
+    private static int obtenerOpcion() { // logica sacada de https://stackoverflow.com/questions/25962939/how-do-i-ensure-that-scanner-hasnextint-asks-for-new-input
         Scanner sc = new Scanner(System.in);
         while(!sc.hasNextInt()){
             System.out.println("Por favor ingresa un numero valido");
@@ -82,7 +82,7 @@ public class Main {
 
 
 
-    private static void eliminarPistola(){
+    private static void eliminarPistola(){ // eliminando pistolas, busca la pistola con un ciclo y luego reemplaza sus valores por null
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Porfavor,ingrese la ID del arma que desea borrar: ");
@@ -98,7 +98,7 @@ public class Main {
     }
 
 
-    public static void agregarPistola(){
+    public static void agregarPistola(){ // te pide primero el input del id y nombre, para luego buscar espacios vacios y rellenarlos con el arma
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Porfavor, ingresar ID del arma: ");
@@ -119,7 +119,7 @@ public class Main {
 
     }
 
-    public static void listarPistolas() {
+    public static void listarPistolas() { // lista todas las pistolas registradas, basicamente busca elementos que no sean nulls.
 
         for (int i=0; i<pistolas.length; i++){
             if (pistolas[i][0] != null){
