@@ -12,21 +12,55 @@ public class Main {
 
 
     public static void main(String[] args) {
-
-        obtenerOpcion();
-        agregarPistola();
-        listarPistolas();
-        eliminarPistola();
-        listarPistolas();
+        menu();
 
     }
 
     public static void menu() {
+        mostrarOpciones();
+        int opcion = obtenerOpcion();
+        ejecutarOpcion(opcion);
+
 
     }
 
     private static void mostrarOpciones(){
+        System.out.println("--BIENVENIDO AL SISTEMA DEL IMPERIO--");
+        System.out.println("[1] AGREGAR PISTOLA");
+        System.out.println("[2] ELIMINAR PISTOLA");
+        System.out.println("[3] LISTAR PISTOLA");
+        System.out.println("[4] SALIR DEL SISTEMA");
         return;
+    }
+
+    private static void ejecutarOpcion(int opcion){
+
+
+        while(opcion != 4){
+            if(opcion == 1){
+                agregarPistola();
+                mostrarOpciones();
+                opcion = obtenerOpcion();
+            }
+            else if (opcion == 2){
+                eliminarPistola();
+                mostrarOpciones();
+                opcion = obtenerOpcion();
+            }
+            else if (opcion == 3){
+                listarPistolas();
+                mostrarOpciones();
+                opcion = obtenerOpcion();
+            }
+            else if (opcion == 4){
+                System.out.println("Saliendo del programa");
+                break;
+            }
+
+
+        }
+
+
     }
 
 
