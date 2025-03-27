@@ -29,14 +29,15 @@ public class Main {
         System.out.println("[1] AGREGAR PISTOLA");
         System.out.println("[2] ELIMINAR PISTOLA");
         System.out.println("[3] LISTAR PISTOLA");
-        System.out.println("[4] SALIR DEL SISTEMA");
+        System.out.println("[4] REORDENAR INVENTARIO");
+        System.out.println("[5] SALIR DEL INVENTARIO.");
         return;
     }
 
     private static void ejecutarOpcion(int opcion){
 
 
-        while(opcion != 4){
+        while(opcion != 5){
             if(opcion == 1){
                 agregarPistola();
                 mostrarOpciones();
@@ -52,7 +53,13 @@ public class Main {
                 mostrarOpciones();
                 opcion = obtenerOpcion();
             }
+
             else if (opcion == 4){
+                reordenarInventario();
+                mostrarOpciones();
+                opcion=obtenerOpcion();
+            }
+            else if (opcion == 5){
                 System.out.println("Saliendo del programa");
                 break;
             }
@@ -79,6 +86,23 @@ public class Main {
 
 
     }
+
+    private static void reordenarInventario(){
+        String[][] newPistols = new String[MAX_PISTOLAS][2];
+        for (int i=0, j=0; i<pistolas.length; i++){
+            if (pistolas[i] != null){
+                newPistols[j][0] = pistolas[i][0];
+                newPistols[j][1] = pistolas[i][1];
+                j++;
+            }
+        }
+
+        pistolas = newPistols;
+        return;
+
+        }
+
+
 
 
 
@@ -123,7 +147,7 @@ public class Main {
 
         for (int i=0; i<pistolas.length; i++){
             if (pistolas[i][0] != null){
-                System.out.println("ID :" + pistolas[i][0] + "Soldado : " + pistolas[i][1]);
+                System.out.println("ID :" + pistolas[i][0] + " Soldado : " + pistolas[i][1]);
             }
         }
     }
